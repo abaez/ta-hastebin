@@ -1,6 +1,7 @@
 
 local http = require("socket.http")
 local ltn12 = require("ltn12")
+local json = require("json") -- luajson
 
 
 local function post(chunk, url)
@@ -17,7 +18,11 @@ local function post(chunk, url)
     sink = ltn12.sink.table(response)
   })
 
-  return response
+  for k, v in pairs(response) do
+    print(k,v)
+  end
+
+  return json.decode(response[1])
 end
 
 
