@@ -18,10 +18,6 @@ local function post(chunk, url)
     sink = ltn12.sink.table(response)
   })
 
-  for k, v in pairs(response) do
-    print(k,v)
-  end
-
   return json.decode(response[1])
 end
 
