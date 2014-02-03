@@ -1,27 +1,32 @@
---- the Textadept initializer for hastebin_client.
--- See @{README} for details on usage.
+--- the Textadept initializer for the hastebin client.
+-- See @{README.md} for details on usage.
 -- @author Alejandro Baez <alejan.baez@gmail.com>
 -- @copyright 2014
--- @license MIT see @{LICENSE}
--- @module hastebin_client
+-- @license MIT (see LICENSE)
+-- @module hastebin
 
 
+--- the default settings for this hastebin client.
+-- @table hastebin
+-- @field DEFAULT_URL defines the default url to use
+-- @field DEFAULT_KEYS a boolean for using default keys. Use false to disable.
+local M = {
+  DEFAULT_URL = "http://code.undonestar.tk:7777",
+  DEFAULT_KEYS = true
+}
 
-local M = {}
---setmetatable(M, meta)
-local meta = {}
 local ul = require("hastebin.ul")
 
-DEFAULT_URL = "http://code.undonestar.tk:7777"
---DEFAULT_URL = "http://hastebin.com"
+--- the run for the hastebin script.
+-- You can call this function using the metamethod __call.
+-- @function new
+-- Calls to @{ul.post} function.
+function M:new()
+  -- @param chunk used for the code that will be pasted.
+  local chunk
 
-local chunk
-
-
-function meta.__call()
-
+  -- checks the type of chunk taken. If no selected text then stingify the file
   if #buffer:get_sel_text() == 0 then
-
     chunk = {}
     for line in io.open(buffer.filename):lines("*L") do
       chunk[#chunk + 1] = line
@@ -32,17 +37,24 @@ function meta.__call()
     chunk = buffer:get_sel_text()
   end
 
-  paste = ul.post(chunk, DEFAULT_URL)
+  -- see @{ul|post} for information.
+  local paste = ul.post(self.DEFAULT_URL, chunk)
+  local final_url = self.DEFAULT_URL .. "/" .. paste["key"]
 
-  final_url = DEFAULT_URL .. "/" .. paste["key"]
   ui.statusbar_text = string.format(("%s added to the clipboard"), final_url)
   ui.clipboard_text = final_url
 end
 
-if not CURSES then
-  keys[not OSX and 'cac' or 'cmc'] = {meta.__call}
+--- makes new() the default call for the module through metatbles.
+-- @function __call
+setmetatable(M, {__call = function(self)
+  return self:new()
+end})
+
+--- the configuration for the default keys.
+-- see @{hastebin|DEFAULT_KEYS} for more information.
+if not CURSES and M.DEFAULT_KEYS then
+    keys[not OSX and 'cac' or 'cmc'] = {M}
 end
 
-
-setmetatable(M, meta)
 return M
