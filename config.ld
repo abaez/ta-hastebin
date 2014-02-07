@@ -1,5 +1,5 @@
 -- ldoc 1.4.2
 project = "Textadept Hastebin client"
-package = "hastebin"
+package = "ta-hastebin"
 format = "markdown"
 readme = "README.md"

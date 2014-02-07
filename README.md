@@ -1,5 +1,5 @@
-# textadept-hastebin
-## A simple Hastebin Client for Textadept by [@a_baez](http://twitter.com/a_baez)
+# ta-hastebin
+## A simple Hastebin Client for Textadept by [Alejandro Baez](http://twitter.com/a_baez)
 
 ### DESCRIPTION
 A quick little module that allows you to paste into a hastebin server. You
@@ -17,7 +17,7 @@ You can install by cloning the repository into your module path of textadept
 and renaming it to `hastebin`. This can easily be done like so:
 
     cd <Textadept install path>/modules
-    hg clone https://ab@learning.undonestar.tk/textadept-hastebin hastebin
+    hg clone https://bitbucket.org/a_baez/ta-hastebin hastebin
 
 Afterwards, append into your textadept's `init.lua` file the following:
     require "hastebin"
