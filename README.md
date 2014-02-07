@@ -1,5 +1,5 @@
 # ta-hastebin
-## A simple Hastebin Client for Textadept by [Alejandro Baez](http://twitter.com/a_baez)
+## A simple [Hastebin](https://github.com/seejohnrun/haste-server) module for [Textadept](http://foicica.com/textadept/) by [Alejandro Baez](http://twitter.com/a_baez).
 
 ### DESCRIPTION
 A quick little module that allows you to paste into a hastebin server. You
