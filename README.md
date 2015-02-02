@@ -23,7 +23,7 @@ Afterwards, append into your textadept's `init.lua` file the following:
     require "hastebin"
 
 Lastly go to the `config.lua` file supplied with the module and change the
-default url to your the hastebin server of your choosing.
+default url to the hastebin server of your choosing.
 
 If you want to use your own keymapping, then call the module by typing
 `local hb = require("hastebin")` and define your keymap by typing something
