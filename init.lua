@@ -10,10 +10,7 @@
 -- @table hastebin
 -- @field DEFAULT_URL defines the default url to use
 -- @field DEFAULT_KEYS a boolean for using default keys. Use false to disable.
-local M = {
-  DEFAULT_URL = "http://hastebin.com",
-  DEFAULT_KEYS = true
-}
+local M = require("hastebin.config")
 
 local ul = require("hastebin.ul")
 

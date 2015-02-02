@@ -22,11 +22,14 @@ and renaming it to `hastebin`. This can easily be done like so:
 Afterwards, append into your textadept's `init.lua` file the following:
     require "hastebin"
 
+Lastly go to the `config.lua` file supplied with the module and change the
+default url to your the hastebin server of your choosing.
+
 If you want to use your own keymapping, then call the module by typing
 `local hb = require("hastebin")` and define your keymap by typing something
 like this: `keys[cac] = {hb}`. At the same time, you may want to change the
 the default keymapping: `DEFAULT_KEYS = true`, to false in the client's
-`init.lua` file. This will disable the default keys.
+`config.lua` file. This will disable the default keys.
 
 ### USAGE
 You can use the hastebin client by highlighting any chunk of code and running
