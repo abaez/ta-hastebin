@@ -1,5 +1,5 @@
 --- a quick POST script using luasockets and luajson.
--- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @author [Alejandro Baez](https://twitter.com/a_baez)
 -- @copyright 2014
 -- @license MIT see @{LICENSE}
 -- @module ul
@@ -10,8 +10,7 @@ local ltn12 = require("ltn12")
 local json = require("json") -- luajson
 
 --- a POST interpretation tuned for use with the hastebin plugin.
--- @function post
--- @param url see @{hastebin|DEFAULT_URL} for more information.
+-- @param url see @{config|DEFAULT_URL} for more information.
 -- @param chunk a code string to be processed by the http request.
 local function post(url, chunk)
   --- a local table which holds the response of the http request.

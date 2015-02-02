@@ -1,22 +1,16 @@
 --- the Textadept initializer for the hastebin client.
 -- See @{README.md} for details on usage.
--- @author Alejandro Baez <alejan.baez@gmail.com>
+-- @author [Alejandro Baez](https://twitter.com/a_baez)
 -- @copyright 2014
 -- @license MIT (see LICENSE)
 -- @module hastebin
 
 
---- the default settings for this hastebin client.
--- @table hastebin
--- @field DEFAULT_URL defines the default url to use
--- @field DEFAULT_KEYS a boolean for using default keys. Use false to disable.
 local M = require("hastebin.config")
-
 local ul = require("hastebin.ul")
 
 --- the run for the hastebin script.
 -- You can call this function using the metamethod __call.
--- @function new
 -- Calls to @{ul.post} function.
 function M:new()
   -- @param chunk used for the code that will be pasted.
@@ -49,7 +43,7 @@ setmetatable(M, {__call = function(self)
 end})
 
 --- the configuration for the default keys.
--- see @{hastebin|DEFAULT_KEYS} for more information.
+-- see @{config|DEFAULT_KEYS} for more information.
 if not CURSES and M.DEFAULT_KEYS then
     keys[not OSX and 'cac' or 'cmc'] = {M}
 end
