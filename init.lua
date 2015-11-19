@@ -38,13 +38,14 @@ function M:new()
 
   -- see @{ul|post} for information.
   local paste = ul.post(self.DEFAULT_URL, chunk)
-  local final_url = self.DEFAULT_URL .. "/" .. paste["key"] .. buffer.filename:match("[^(.+/)](%..+)")
+  local final_url = self.DEFAULT_URL .. "/" .. paste["key"] ..
+                    buffer.filename:match("[^(.+/)](%..+)")
 
   ui.statusbar_text = string.format(("%s added to the clipboard"), final_url)
   ui.clipboard_text = final_url
 end
 
---- makes new() the default call for the module through metatbles.
+--- makes new() the default call for the module through metatables.
 -- @function __call
 setmetatable(M, {__call = function(self)
   return self:new()
