@@ -6,8 +6,16 @@
 -- @module hastebin
 
 
-local M = require("hastebin.config")
 local ul = require("hastebin.ul")
+
+--- the default settings for this hastebin client.
+-- @table config
+-- @field DEFAULT_URL defines the default url to use
+-- @field DEFAULT_KEYS a boolean for using default keys. Use false to disable.
+local M = {
+  DEFAULT_URL = _G.HB_DEFAULT_URL or "http://hastebin.com",
+  DEFAULT_KEYS = _G.HB_DEFAULT_KEYS or true
+}
 
 --- the run for the hastebin script.
 -- You can call this function using the metamethod __call.
