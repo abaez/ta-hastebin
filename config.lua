@@ -10,6 +10,6 @@
 -- @field DEFAULT_URL defines the default url to use
 -- @field DEFAULT_KEYS a boolean for using default keys. Use false to disable.
 return {
-  DEFAULT_URL = "",
-  DEFAULT_KEYS = true
+  DEFAULT_URL = _G.DEFAULT_URL or "http://hastebin.com",
+  DEFAULT_KEYS = _G.DEFAULT_KEYS or true
 }
